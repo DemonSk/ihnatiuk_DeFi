@@ -21,11 +21,12 @@
 require("dotenv").config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
-const infuraKey = process.env.INFURA_KEY;
+const privateKey = process.env.PRIVAT_KEY;
 const infuraURL = process.env.INFURA_URL;
+// const mnemonic = process.env.MNEMONIC;
 
 module.exports = {
-  plugins: ["truffle-plugin-verify"],
+  plugins: ["truffle-plugin-verify", "solidity-coverage"],
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -60,10 +61,11 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     rinkeby: {
-      provider: () => new HDWalletProvider([infuraKey], infuraURL),
+      provider: () => new HDWalletProvider(privateKey, infuraURL),
       gas: 5000000,
       gasPrice: 25000000000,
       network_id: 4, // rinkeby's id
+      websocket: true,
     },
     // Useful for private networsks
     // private: {
