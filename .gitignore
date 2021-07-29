@@ -1,0 +1,11 @@
+# Ignore zeppelin contracts
+node_modules/
+
+# Ignore build stuff
+cache/
+build/
+dist/
+
+.env
+.vscode
+
