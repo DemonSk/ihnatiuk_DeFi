@@ -6,6 +6,11 @@ cache/
 build/
 dist/
 
+
+# Ignore test coverage
+coverage/
+coverage.json
+
 .env
 .vscode
 
