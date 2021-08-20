@@ -13,4 +13,5 @@ coverage.json
 
 .env
 .vscode
+scripts/
 

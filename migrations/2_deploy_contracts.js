@@ -1,9 +1,13 @@
 const DSToken = artifacts.require("DSToken");
-const WDSToken = artifacts.require("WDSToken");
+const DSStorage = artifacts.require("DSStorage");
 
 module.exports = async function (deployer, network, accounts) {
   await deployer.deploy(DSToken);
   const myToken = await DSToken.deployed();
 
-  await deployer.deploy(WDSToken, myToken.address);
+  await deployer.deploy(
+    DSStorage,
+    myToken.address,
+    "0x09676Ee4685B618d0DCc85E221019c9Ce3810211"
+  );
 };
